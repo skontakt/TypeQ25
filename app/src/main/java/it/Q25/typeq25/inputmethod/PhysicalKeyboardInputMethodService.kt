@@ -2004,8 +2004,16 @@ class PhysicalKeyboardInputMethodService : InputMethodService(), LifecycleOwner,
             keyCode == KeyEvent.KEYCODE_ALT_LEFT ||
             keyCode == KeyEvent.KEYCODE_ALT_RIGHT
         
-        // Handle keycode 68 (L key) for currency/speaker after checking if it's combined with Alt
-        if (keyCode == 68 && !isModifierKey) {
+        // Q25 Russian photo layout: the physical currency key (keycode 68)
+        // represents Б/Ю. Route its unmodified presses through MultiTapController.
+        // Preserve Alt/Ctrl shortcuts and currency/speakerphone behavior elsewhere.
+        val isRussianPhotoLetterKey = hasEditableField &&
+            deviceType == "Q25" &&
+            SettingsManager.getKeyboardLayout(this) == "russian_q25_photo" &&
+            LayoutMappingRepository.getMapping(68)?.multiTapEnabled == true &&
+            !(altLatchActive || altOneShot || altPressed || altPhysicallyPressed || event?.isAltPressed == true) &&
+            !(ctrlLatchActive || ctrlOneShot || ctrlPressed || event?.isCtrlPressed == true)
+        if (keyCode == 68 && !isModifierKey && !isRussianPhotoLetterKey) {
             if (handleCurrencyKey(event)) {
                 return true
             }

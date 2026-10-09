@@ -57,7 +57,7 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "it.srik.TypeQ25"
+        applicationId = "it.srik.TypeQ25.russianphoto"
         minSdk = 29
         targetSdk = 36
         versionCode = 5
