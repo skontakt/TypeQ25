@@ -555,8 +555,8 @@ private fun checkImeStatus(
 ) {
     try {
         val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        val TypeQ25PackageName = "it.srik.TypeQ25"
-        val TypeQ25ImeId = "it.srik.TypeQ25/.inputmethod.PhysicalKeyboardInputMethodService"
+        val TypeQ25PackageName = context.packageName
+        val TypeQ25ImeId = android.content.ComponentName(context, it.srik.TypeQ25.inputmethod.PhysicalKeyboardInputMethodService::class.java).flattenToString()
         
         // Check if TypeQ25 is enabled using InputMethodManager
         val enabledInputMethods = imm.enabledInputMethodList
