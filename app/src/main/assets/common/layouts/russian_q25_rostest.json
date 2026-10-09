@@ -1,19 +1,19 @@
 {
-  "name": "Russian Q25 (Photo)",
-  "description": "Russian physical keyboard layout matching Q25 photo: 33 letters and multi-tap (including keycode 68 for Б/Ю).",
+  "name": "Russian Q25 (Rostest)",
+  "description": "Russian physical keyboard layout Rostest Q25 physical key positions: 33 letters and multi-tap (including keycode 68 for Б/Ю).",
   "mappings": {
     "KEYCODE_Q": {
-      "lowercase": "ё",
-      "uppercase": "Ё",
+      "lowercase": "й",
+      "uppercase": "Й",
       "multiTapEnabled": true,
       "taps": [
         {
-          "lowercase": "ё",
-          "uppercase": "Ё"
-        },
-        {
           "lowercase": "й",
           "uppercase": "Й"
+        },
+        {
+          "lowercase": "ё",
+          "uppercase": "Ё"
         }
       ]
     },

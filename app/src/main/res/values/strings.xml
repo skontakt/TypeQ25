@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">TypeQ25 Russian</string>
     <string name="input_method_name">TypeQ25 Russian Keyboard</string>
+    <string name="keyboard_brand_subtitle">Физическая клавиатура от BlackBerry Russia</string>
     <string name="input_method_name_en">English</string>
     <string name="input_method_name_it">Italiano</string>
     <string name="input_method_name_fr">Français</string>
@@ -66,7 +67,7 @@
     <!-- Installation Section -->
     <string name="installation_title">Installation</string>
     <string name="installation_step1">1. Click the button below to open settings</string>
-    <string name="installation_step2">2. Enable \'TypeQ25 Physical Keyboard\'</string>
+    <string name="installation_step2">2. Enable \'TypeQ25 Russian Keyboard\'</string>
     <string name="installation_step3">3. Come back here and test the keyboard</string>
     <string name="open_keyboard_settings">Open Keyboard Settings</string>
     

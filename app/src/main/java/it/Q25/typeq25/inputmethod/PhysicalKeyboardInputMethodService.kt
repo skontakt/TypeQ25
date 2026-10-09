@@ -2009,7 +2009,7 @@ class PhysicalKeyboardInputMethodService : InputMethodService(), LifecycleOwner,
         // Preserve Alt/Ctrl shortcuts and currency/speakerphone behavior elsewhere.
         val isRussianPhotoLetterKey = hasEditableField &&
             deviceType == "Q25" &&
-            SettingsManager.getKeyboardLayout(this) == "russian_q25_photo" &&
+            SettingsManager.getKeyboardLayout(this) == "russian_q25_rostest" &&
             LayoutMappingRepository.getMapping(68)?.multiTapEnabled == true &&
             !(altLatchActive || altOneShot || altPressed || altPhysicallyPressed || event?.isAltPressed == true) &&
             !(ctrlLatchActive || ctrlOneShot || ctrlPressed || event?.isCtrlPressed == true)
