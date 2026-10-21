@@ -5,6 +5,7 @@ on:
     branches:
       - feature/russian-q25-photo-apk
       - master
+      - main
     paths:
       - 'app/**'
       - 'gradle/**'
@@ -13,7 +14,7 @@ on:
       - 'settings.gradle.kts'
       - '.github/workflows/build-russian-photo.yml'
   pull_request:
-    branches: [master]
+    branches: [master, main]
   workflow_dispatch:
 
 permissions:
