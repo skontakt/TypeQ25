@@ -88,10 +88,12 @@ fun CustomTopBar(
                         color = BlackBerrySilver
                     )
                     Text(
-                        text = "Physical Keyboard IME",
+                        text = stringResource(R.string.keyboard_brand_subtitle),
                         style = MaterialTheme.typography.bodySmall,
                         color = BlackBerryBlue,
-                        fontWeight = FontWeight.Medium
+                        fontWeight = FontWeight.Medium,
+                        textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                        maxLines = 2
                     )
                 }
 

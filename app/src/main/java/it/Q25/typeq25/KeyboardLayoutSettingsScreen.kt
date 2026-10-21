@@ -63,7 +63,7 @@ fun KeyboardLayoutSettingsScreen(
     // Get available keyboard layouts from assets and custom files (excluding qwerty as it's the default)
     val availableLayouts = remember(refreshTrigger) {
         LayoutMappingRepository.getAvailableLayouts(context.assets, context)
-            .filter { it != "qwerty" && !LayoutFileStore.layoutExists(context, it) }
+            .filter { it != "qwerty" }
     }
     
     // Snackbar host state for showing messages
