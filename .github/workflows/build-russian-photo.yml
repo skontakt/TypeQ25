@@ -60,3 +60,41 @@ jobs:
           path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
           retention-days: 30
+
+  publish-apk:
+    name: Publish APK without ZIP
+    needs: build
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    concurrency:
+      group: typeq25-main-apk-release
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - name: Download built APK
+        uses: actions/download-artifact@v4
+        with:
+          name: TypeQ25-Russian-Rostest-debug-APK
+          path: dist
+      - name: Publish direct APK download to GitHub Releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          COMMIT_SHA: ${{ github.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s dist/app-debug.apk
+          mv dist/app-debug.apk dist/TypeQ25-Russian-Rostest.apk
+          NOTES="Latest debug APK built from main at commit ${COMMIT_SHA}. Debug builds are not production-signed."
+          if gh release view main-latest > /dev/null 2>&1; then
+            gh release upload main-latest dist/TypeQ25-Russian-Rostest.apk --clobber
+            gh release edit main-latest --notes "$NOTES" --prerelease
+          else
+            gh release create main-latest dist/TypeQ25-Russian-Rostest.apk \
+              --target "$COMMIT_SHA" \
+              --title "TypeQ25 Russian Rostest — main APK" \
+              --notes "$NOTES" \
+              --prerelease
+          fi
