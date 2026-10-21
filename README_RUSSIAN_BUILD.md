@@ -10,8 +10,14 @@
 - GitHub Actions собирает `debug` APK и загружает в Artifacts.
 
 ## Получить APK в GitHub
-1. Откройте вкладку **Actions** этого репозитория и включите workflows (**I understand my workflows, go ahead and enable them**), если GitHub просит подтверждение (fork).
-2. Перейдите к **Build TypeQ25 Russian APK** и выберите **Run workflow** после того, как изменения попадут в ветку `master`. Для ветки `feature/russian-q25-photo-apk` автоматическая сборка предусмотрена при push; PR в `master` также запускает сборку.
+### Без ZIP (рекомендуется)
+После успешной сборки ветки `main` APK автоматически публикуется в [GitHub Releases](https://github.com/skontakt/TypeQ25/releases/tag/main-latest).
+
+Прямая ссылка на установочный файл: [TypeQ25-Russian-Rostest.apk](https://github.com/skontakt/TypeQ25/releases/download/main-latest/TypeQ25-Russian-Rostest.apk). Архив распаковывать не нужно — скачайте и установите APK на Android.
+
+### Через GitHub Actions (ZIP)
+1. Откройте вкладку **Actions** этого репозитория и включите workflows, если GitHub просит подтверждение (fork).
+2. Перейдите к **Build TypeQ25 Russian Rostest APK** и запустите **Run workflow** для `main` или дождитесь автоматической сборки при изменении Android-проекта.
 3. Откройте успешный запуск, прокрутите вниз до **Artifacts**.
 4. Скачайте `TypeQ25-Russian-Rostest-debug-APK`, распакуйте архив и установите `app-debug.apk`.
 
